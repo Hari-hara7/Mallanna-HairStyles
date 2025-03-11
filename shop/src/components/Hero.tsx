@@ -1,4 +1,4 @@
-import heroBg from "../assets/image1.jpg";
+import heroBg from "../assets/image.jpg";
 import { motion } from "framer-motion";
 import { FaArrowRight } from "react-icons/fa";
 
