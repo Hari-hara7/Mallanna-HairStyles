@@ -1,37 +1,48 @@
-import { FaFacebook, FaInstagram, FaTwitter, FaLinkedin, FaYoutube } from "react-icons/fa";
-import logo from "../assets/logo.png"; // Make sure this path is correct
+import { FaFacebook, FaInstagram, FaTwitter, FaLinkedin, FaYoutube, FaMapMarkerAlt } from "react-icons/fa";
+import logo from "../assets/logo.png"; // Ensure correct path
 
 const Footer = () => {
   return (
-    <footer className="relative bg-black/40 text-white py-10 px-6 text-center backdrop-blur-lg border-t border-[#FFD700]">
-      {/* Logo & Branding */}
-      <div className="max-w-6xl mx-auto flex flex-col sm:flex-row justify-between items-center">
-        {/* Logo with Highlight Effect */}
-        <div className="flex items-center space-x-3">
-          <div className="p-1 bg-black rounded-full shadow-lg animate-pulse">  
+    <footer className="relative bg-gradient-to-t from-black to-gray-900/80 text-white py-12 px-6 text-center backdrop-blur-lg border-t border-[#FFD700] shadow-2xl">
+      {/* Main Container */}
+      <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-10">
+        
+        {/* Left Section - Logo & Branding */}
+        <div className="flex flex-col items-center md:items-start text-center md:text-left">
+          <div className="relative p-2 bg-black/50 rounded-full shadow-xl animate-pulse transition hover:scale-110 hover:shadow-[#FFD700]/80">
             <img 
               src={logo} 
               alt="Mallanna Logo" 
-              className="w-16 h-16 sm:w-20 sm:h-20 rounded-full object-cover border-2 border-[#FFD700] shadow-md"
+              className="w-28 h-28 sm:w-32 sm:h-32 rounded-full object-cover border-4 border-[#FFD700] shadow-md transition hover:rotate-6"
             />
           </div>
+          <p className="text-gray-300 mt-4 text-lg font-semibold">
+            <span className="text-[#FFD700] font-bold">Mallanna</span> – Luxury & Elegance, Redefined.
+          </p>
         </div>
 
-        {/* Tagline */}
-        <p className="text-gray-300 mt-4 sm:mt-0 text-sm sm:text-base">
-          <span className="text-[#FFD700] font-semibold">Luxury & Elegance</span>, Redefined.
-        </p>
+        {/* Middle Section - Google Map */}
+        <div className="w-full md:w-1/2 h-52 rounded-lg overflow-hidden shadow-md bg-black/30 border border-[#FFD700] transition hover:scale-105">
+          <iframe
+            className="w-full h-full border-none rounded-lg"
+            src="https://maps.google.com/maps?q=Mallanna%20Salon&t=&z=13&ie=UTF8&iwloc=&output=embed"
+            allowFullScreen
+            loading="lazy"
+          ></iframe>
+        </div>
+
       </div>
 
-      {/* Links Section */}
-      <div className="flex flex-wrap justify-center mt-6 space-x-6 text-gray-300">
-        {["Home", "About Us", "Services", "Gallery", "Contact"].map((link, index) => (
+      {/* Quick Links */}
+      <div className="flex flex-wrap justify-center mt-10 gap-6 text-gray-300 text-lg">
+        {["Home", "About", "Services", "Gallery", "Products", "Contact"].map((link, index) => (
           <a
             key={index}
             href={`#${link.toLowerCase()}`}
-            className="transition hover:text-[#FFD700] hover:scale-110"
+            className="relative group transition hover:text-[#FFD700] hover:scale-105"
           >
             {link}
+            <span className="block h-0.5 w-0 bg-[#FFD700] transition-all duration-300 group-hover:w-full"></span>
           </a>
         ))}
       </div>
@@ -50,15 +61,20 @@ const Footer = () => {
             href={social.link}
             target="_blank"
             rel="noopener noreferrer"
-            className="text-[#FFD700] text-2xl transition hover:text-white hover:scale-125"
+            className="text-[#FFD700] text-3xl transition transform hover:scale-125 hover:text-white hover:rotate-6"
           >
             {social.icon}
           </a>
         ))}
       </div>
 
-      {/* Copyright */}
-      <p className="text-gray-400 mt-6 text-sm">© 2024 Mallanna. All Rights Reserved.</p>
+      {/* Address & Copyright */}
+      <div className="mt-10 text-gray-400 text-sm">
+        <p className="flex justify-center items-center gap-2">
+          <FaMapMarkerAlt className="text-[#FFD700]" /> Kadiri Court Road, Andhra Pradesh
+        </p>
+        <p className="mt-2">&copy; {new Date().getFullYear()} Mallanna. All Rights Reserved.</p>
+      </div>
     </footer>
   );
 };
