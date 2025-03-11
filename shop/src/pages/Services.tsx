@@ -100,25 +100,28 @@ const Services = () => {
       </section>
 
       {/* Call to Action - Book Now */}
-      <section className="py-24 px-6 bg-black">
-        <motion.div 
-          className="max-w-4xl mx-auto text-center p-12 border border-[#FFD700] rounded-2xl shadow-lg bg-gray-900/50"
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          transition={{ duration: 1 }}
-        >
-          <h2 className="text-5xl font-bold text-[#FFD700] mb-6">Book Your Appointment Now</h2>
-          <p className="text-gray-300 text-xl">
-            Experience luxury styling and grooming with our professional team.
-          </p>
-          <motion.button
-            className="mt-8 px-10 py-4 text-xl font-semibold bg-gradient-to-r from-[#FFD700] to-[#ff8c00] text-black rounded-md shadow-lg hover:scale-110 transition duration-300"
-            whileHover={{ scale: 1.1 }}
-          >
-            Schedule a Visit
-          </motion.button>
-        </motion.div>
-      </section>
+<section className="py-16 px-4 sm:px-6 bg-black">
+  <motion.div 
+    className="max-w-3xl mx-auto text-center p-8 sm:p-12 border border-[#FFD700] rounded-2xl shadow-lg bg-gray-900/50"
+    initial={{ opacity: 0, scale: 0.9 }}
+    whileInView={{ opacity: 1, scale: 1 }}
+    transition={{ duration: 1, ease: "easeOut" }}
+  >
+    <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-[#FFD700] mb-4 sm:mb-6 leading-tight">
+      Book Your Appointment Now
+    </h2>
+    <p className="text-gray-300 text-lg sm:text-xl max-w-2xl mx-auto">
+      Experience luxury styling and grooming with our professional team.
+    </p>
+    <motion.button
+      className="mt-6 sm:mt-8 px-6 sm:px-10 py-3 sm:py-4 text-lg sm:text-xl font-semibold bg-gradient-to-r from-[#FFD700] to-[#ff8c00] text-black rounded-md shadow-lg hover:scale-105 transition duration-300"
+      whileHover={{ scale: 1.1 }}
+    >
+      Schedule a Visit
+    </motion.button>
+  </motion.div>
+</section>
+
 
       {/* Footer */}
       <Footer />
