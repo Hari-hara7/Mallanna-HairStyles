@@ -2,13 +2,14 @@ import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import { motion } from "framer-motion";
 import { GiTie, GiScissors, GiPaintBrush, GiDiamondTrophy, GiStarShuriken, GiTeamIdea } from "react-icons/gi";
-import ownerImage from "../assets/user.webp";
+import ownerImage from "../assets/user.webp";//shop/src/assets/mallanna.png
+import owner from "../assets/mallanna.png";
 
 const teamMembers = [
   {
     name: "Malli Karjuna",
     role: "Owner",
-    image: ownerImage,
+    image: owner,
     icon: <GiTie />,
     description: "A visionary leader with over 15 years of experience in salon management and styling.",
   },
