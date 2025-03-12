@@ -56,9 +56,11 @@ const Products = () => {
         <div className="flex justify-center">
           <img src={logo} alt="Mallanna Logo" className="w-32 md:w-40" />
         </div>
-        <h1 className="text-5xl md:text-7xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-[#FFD700] to-[#ff8c00] uppercase tracking-widest mt-4 font-[Playfair Display]">
-          Exclusive Collection
-        </h1>
+        <h1 className="text-4xl sm:text-5xl md:text-7xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-[#FFD700] to-[#ff8c00] uppercase tracking-wider sm:tracking-widest mt-3 sm:mt-4 md:mt-6 text-center font-['Cormorant_Garamond']">
+  Exclusive Collection
+</h1>
+
+
         <p className="text-lg text-gray-400 max-w-3xl mx-auto mt-4 font-[Poppins]">
           Experience unmatched luxury with our handpicked premium grooming products.
         </p>
