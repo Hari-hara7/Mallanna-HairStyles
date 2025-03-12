@@ -21,18 +21,18 @@ const ProductModal = ({ product, onClose }) => {
 
   return (
     <motion.div
-      className="fixed inset-0 bg-black/80 flex justify-center items-center p-6"
+      className="fixed inset-0 bg-black/80 flex justify-center items-center p-4 sm:p-6"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
     >
       <motion.div
-        className="bg-white/10 backdrop-blur-lg border border-gray-500 p-6 rounded-2xl text-white max-w-md w-full relative shadow-2xl transition-all"
+        className="bg-white/10 backdrop-blur-lg border border-gray-500 p-4 sm:p-6 rounded-2xl text-white w-full max-w-lg sm:max-w-md relative shadow-2xl transition-all"
         initial={{ scale: 0.8 }}
         animate={{ scale: 1 }}
       >
         {/* Close Button */}
         <button
-          className="absolute top-4 right-4 text-2xl text-[#FFD700] hover:text-red-500 transition-transform duration-200 hover:rotate-90"
+          className="absolute top-3 right-3 text-xl sm:text-2xl text-[#FFD700] hover:text-red-500 transition-transform duration-200 hover:rotate-90"
           onClick={onClose}
         >
           <IoClose />
@@ -40,64 +40,63 @@ const ProductModal = ({ product, onClose }) => {
 
         {/* Brand Logo */}
         <div className="flex justify-center mb-4">
-          <img src={logo} alt="Brand Logo" className="w-20 h-20 rounded-full shadow-lg" />
+          <img src={logo} alt="Brand Logo" className="w-16 h-16 sm:w-20 sm:h-20 rounded-full shadow-lg" />
         </div>
 
         {/* Product Title with Logo */}
-        <h2 className="text-3xl font-bold text-[#FFD700] mb-6 flex items-center gap-3">
-          <FaBoxOpen className="text-4xl" /> {product.name}
-          
+        <h2 className="text-xl sm:text-3xl font-bold text-[#FFD700] mb-4 sm:mb-6 flex items-center gap-2 sm:gap-3">
+          <FaBoxOpen className="text-3xl sm:text-4xl" /> {product.name}
         </h2>
 
         {/* Order Form */}
         <form action="https://formspree.io/f/{your_formspree_id}" method="POST">
           {/* Name Field */}
-          <div className="relative mb-4">
+          <div className="relative mb-3 sm:mb-4">
             <MdOutlineEmail className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 text-lg" />
             <input
               type="text"
               name="name"
               placeholder="Your Name"
-              className="w-full p-3 pl-10 bg-black border border-gray-600 rounded-lg text-white focus:ring-2 focus:ring-[#FFD700]"
+              className="w-full p-2 sm:p-3 pl-10 bg-black border border-gray-600 rounded-lg text-white focus:ring-2 focus:ring-[#FFD700]"
               onChange={handleChange}
               required
             />
           </div>
 
           {/* Email Field */}
-          <div className="relative mb-4">
+          <div className="relative mb-3 sm:mb-4">
             <MdOutlineEmail className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 text-lg" />
             <input
               type="email"
               name="email"
               placeholder="Your Email"
-              className="w-full p-3 pl-10 bg-black border border-gray-600 rounded-lg text-white focus:ring-2 focus:ring-[#FFD700]"
+              className="w-full p-2 sm:p-3 pl-10 bg-black border border-gray-600 rounded-lg text-white focus:ring-2 focus:ring-[#FFD700]"
               onChange={handleChange}
               required
             />
           </div>
 
           {/* Quantity Field */}
-          <div className="relative mb-4">
+          <div className="relative mb-3 sm:mb-4">
             <FiHash className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 text-lg" />
             <input
               type="number"
               name="quantity"
               min="1"
               placeholder="Quantity"
-              className="w-full p-3 pl-10 bg-black border border-gray-600 rounded-lg text-white focus:ring-2 focus:ring-[#FFD700]"
+              className="w-full p-2 sm:p-3 pl-10 bg-black border border-gray-600 rounded-lg text-white focus:ring-2 focus:ring-[#FFD700]"
               onChange={handleChange}
               required
             />
           </div>
 
           {/* Address Field */}
-          <div className="relative mb-6">
+          <div className="relative mb-4 sm:mb-6">
             <FiHome className="absolute left-3 top-3 text-gray-400 text-lg" />
             <textarea
               name="address"
               placeholder="Delivery Address"
-              className="w-full p-3 pl-10 bg-black border border-gray-600 rounded-lg text-white focus:ring-2 focus:ring-[#FFD700]"
+              className="w-full p-2 sm:p-3 pl-10 bg-black border border-gray-600 rounded-lg text-white focus:ring-2 focus:ring-[#FFD700]"
               onChange={handleChange}
               required
             ></textarea>
@@ -106,7 +105,7 @@ const ProductModal = ({ product, onClose }) => {
           {/* Submit Button */}
           <button
             type="submit"
-            className="w-full py-3 bg-gradient-to-r from-[#FFD700] to-[#ff8c00] text-black font-semibold rounded-lg shadow-lg hover:scale-105 transition-transform duration-300"
+            className="w-full py-2 sm:py-3 bg-gradient-to-r from-[#FFD700] to-[#ff8c00] text-black font-semibold rounded-lg shadow-lg hover:scale-105 transition-transform duration-300"
           >
             Confirm Order
           </button>
