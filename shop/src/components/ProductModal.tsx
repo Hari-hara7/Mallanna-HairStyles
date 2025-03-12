@@ -44,7 +44,10 @@ const ProductModal = ({ product, onClose }) => {
         </div>
 
         {/* Product Title with Logo */}
-    
+        <h2 className="text-3xl font-bold text-[#FFD700] mb-6 flex items-center gap-3">
+          <FaBoxOpen className="text-4xl" /> {product.name}
+          
+        </h2>
 
         {/* Order Form */}
         <form action="https://formspree.io/f/{your_formspree_id}" method="POST">
