@@ -16,7 +16,7 @@ const Hero = () => {
         backgroundRepeat: "no-repeat",
       }}
     >
-      {/* Dark Overlay */}
+      {/* Darghjjhk Overlay */}
       <div className="absolute inset-0 bg-black bg-opacity-70"></div>
 
       {/* Soft Glow Effects */}
