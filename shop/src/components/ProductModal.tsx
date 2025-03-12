@@ -57,7 +57,7 @@ const ProductModal = ({ product, onClose }) => {
               type="text"
               name="name"
               placeholder="Your Name"
-              className="w-full p-2 sm:px-8 pl-10 bg-black border border-gray-600 rounded-lg text-white focus:ring-2 focus:ring-[#FFD700]"
+              className="w-full p-2 sm:p-3 pl-12 sm:pl-14 bg-black border border-gray-600 rounded-lg text-white focus:ring-2 focus:ring-[#FFD700]"
               onChange={handleChange}
               required
             />
@@ -65,16 +65,17 @@ const ProductModal = ({ product, onClose }) => {
 
           {/* Email Field */}
           <div className="relative mb-3 sm:mb-4">
-            <MdOutlineEmail className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 text-lg" />
-            <input
-              type="email"
-              name="email"
-              placeholder="Your Email"
-              className="w-full p-2 sm:px-8 pl-10 bg-black border border-gray-600 rounded-lg text-white focus:ring-2 focus:ring-[#FFD700]"
-              onChange={handleChange}
-              required
-            />
-          </div>
+  <MdOutlineEmail className="absolute left-4 sm:left-5 top-1/2 transform -translate-y-1/2 text-gray-400 text-lg sm:text-xl" />
+  <input
+    type="email"
+    name="email"
+    placeholder="Your Email"
+    className="w-full p-2 sm:p-3 pl-12 sm:pl-14 bg-black border border-gray-600 rounded-lg text-white focus:ring-2 focus:ring-[#FFD700]"
+    onChange={handleChange}
+    required
+  />
+</div>
+
 
           {/* Quantity Field */}
           <div className="relative mb-3 sm:mb-4">
@@ -84,7 +85,7 @@ const ProductModal = ({ product, onClose }) => {
               name="quantity"
               min="1"
               placeholder="Quantity"
-              className="w-full p-2 sm:px-8 pl-10 bg-black border border-gray-600 rounded-lg text-white focus:ring-2 focus:ring-[#FFD700]"
+              className="w-full p-2 sm:p-3 pl-12 sm:pl-14 bg-black border border-gray-600 rounded-lg text-white focus:ring-2 focus:ring-[#FFD700]"
               onChange={handleChange}
               required
             />
@@ -96,7 +97,7 @@ const ProductModal = ({ product, onClose }) => {
             <textarea
               name="address"
               placeholder="Delivery Address"
-              className="w-full p-8 sm:px-8 pl-10 bg-black border border-gray-600 rounded-lg text-white focus:ring-2 focus:ring-[#FFD700]"
+              className="w-full p-2 sm:p-3 pl-12 sm:pl-14 bg-black border border-gray-600 rounded-lg text-white focus:ring-2 focus:ring-[#FFD700]"
               onChange={handleChange}
               required
             ></textarea>
