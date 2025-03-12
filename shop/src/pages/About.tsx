@@ -39,14 +39,17 @@ const About = () => {
         {/* Hero Section with Parallax */}
         <section className="relative text-center py-20 px-6 bg-gradient-to-b from-black via-gray-900 to-black">
         <motion.h1
-  className="text-5xl sm:text-6xl md:text-7xl font-bold text-[#FFD700] mb-8 uppercase tracking-wide drop-shadow-lg 
-             font-[Cormorant_Garamond] sm:font-[Cinzel]"
+  className="text-5xl sm:text-6xl md:text-7xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#FFD700] to-[#ff8c00] uppercase tracking-wide mb-8 drop-shadow-lg"
+  style={{
+    fontFamily: window.innerWidth < 640 ? '"Cormorant Garamond", serif' : '"Cinzel", serif',
+  }}
   initial={{ opacity: 0, y: -20 }}
   animate={{ opacity: 1, y: 0 }}
   transition={{ duration: 0.5 }}
 >
   About Mallanna Salon
 </motion.h1>
+
 
 
           <motion.p
