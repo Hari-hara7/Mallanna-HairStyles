@@ -19,7 +19,7 @@ const Services = () => {
 
       {/* Hero Section with 3D Text Effect */}
       <motion.div 
-        className="relative h-96 flex items-center justify-center text-center bg-cover bg-center"
+        className="relative h-46 flex items-center justify-center text-center bg-cover bg-center"
         style={{ backgroundImage: "url('/services-bg.jpg')" }}
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
@@ -27,7 +27,7 @@ const Services = () => {
       >
         <div className="absolute inset-0 bg-black bg-opacity-70"></div>
         <motion.h1
-          className="relative text-4xl md:text-8xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-[#FFD700] to-[#ff8c00] drop-shadow-lg uppercase tracking-widest"
+          className="relative text-4xl md:text-8xl font-extrabold text-transparent bg-clip-text  bg-gradient-to-r from-[#FFD700] to-[#ff8c00] drop-shadow-lg uppercase tracking-widest mt-30"
           initial={{ scale: 0.8 }}
           animate={{ scale: 1 }}
           transition={{ duration: 0.8, ease: "easeOut" }}
