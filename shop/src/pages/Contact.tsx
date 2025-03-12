@@ -39,9 +39,9 @@ const Contact = () => {
       <Navbar />
 
       {/* Hero Section */}
-      <div className="relative h-60 sm:h-72 flex items-center justify-center text-center">
+      <div className="relative h-40 flex items-center justify-center text-center px-4">
         <motion.h1
-          className="relative text-3xl sm:text-5xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-[#FFD700] to-[#ff8c00] drop-shadow-lg uppercase tracking-wide text-center"
+          className="text-3xl sm:text-5xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-[#FFD700] to-[#ff8c00] drop-shadow-lg uppercase tracking-wide mt-20"
           initial={{ scale: 0.8 }}
           animate={{ scale: 1 }}
           transition={{ duration: 0.8, ease: "easeOut" }}
@@ -51,17 +51,19 @@ const Contact = () => {
       </div>
 
       {/* Contact Info & Form Section */}
-      <div className="container mx-auto px-4 sm:px-6 py-8 flex flex-col md:flex-row gap-8">
+      <div className="container mx-auto px-6 py-10 grid gap-10 md:grid-cols-2">
         
         {/* Left Section - Contact Info */}
         <motion.div
-          className="bg-white/10 backdrop-blur-lg p-6 sm:p-8 rounded-lg shadow-lg border border-[#FFD700] flex-1"
+          className="bg-white/10 backdrop-blur-lg p-6 sm:p-8 rounded-lg shadow-lg border border-[#FFD700]"
           initial={{ opacity: 0, x: -50 }}
           whileInView={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.6 }}
         >
-          <h2 className="text-2xl sm:text-3xl font-bold text-[#FFD700] mb-4 sm:mb-6 text-center sm:text-left">Get in Touch</h2>
-          <div className="space-y-3 sm:space-y-4 text-lg">
+          <h2 className="text-2xl sm:text-3xl font-bold text-[#FFD700] mb-6 text-center sm:text-left">
+            Get in Touch
+          </h2>
+          <div className="space-y-4 text-lg">
             <p className="flex items-center"><FaPhone className="text-[#FFD700] mr-3" /> 88862 89728</p>
             <p className="flex items-center"><FaEnvelope className="text-[#FFD700] mr-3" /> mallanna@gmail.com</p>
             <p className="flex items-center"><FaMapMarkerAlt className="text-[#FFD700] mr-3" /> Mallanna Hair Styles, Court Road, Kadiri, Andhra Pradesh</p>
@@ -77,13 +79,15 @@ const Contact = () => {
 
         {/* Right Section - Contact Form */}
         <motion.form
-          className="bg-white/10 backdrop-blur-lg p-6 sm:p-8 rounded-lg shadow-lg border border-[#FFD700] flex-1"
+          className="bg-white/10 backdrop-blur-lg p-6 sm:p-8 rounded-lg shadow-lg border border-[#FFD700]"
           initial={{ opacity: 0, x: 50 }}
           whileInView={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.6 }}
           onSubmit={handleSubmit}
         >
-          <h2 className="text-2xl sm:text-3xl font-bold text-[#FFD700] mb-4 sm:mb-6 text-center sm:text-left">Send a Message</h2>
+          <h2 className="text-2xl sm:text-3xl font-bold text-[#FFD700] mb-6 text-center sm:text-left">
+            Send a Message
+          </h2>
           <div className="space-y-4">
             <input
               type="text"
@@ -112,17 +116,19 @@ const Contact = () => {
               className="w-full p-3 rounded-lg bg-black text-white border border-[#FFD700] focus:outline-none focus:ring-2 focus:ring-[#ff8c00]"
               required
             ></textarea>
-            <button className="w-full p-3 bg-[#FFD700] text-black font-bold rounded-lg hover:bg-[#ff8c00] transition">Send Message</button>
+            <button className="w-full p-3 bg-[#FFD700] text-black font-bold rounded-lg hover:bg-[#ff8c00] transition">
+              Send Message
+            </button>
           </div>
           {status && <p className="mt-4 text-center text-[#FFD700]">{status}</p>}
         </motion.form>
       </div>
 
       {/* Google Map */}
-      <div className="w-full h-60 sm:h-72">
+      <div className="w-full h-60 sm:h-72 px-6">
         <iframe
-          className="w-full h-full rounded-lg shadow-lg border border-[#FFD700]"
-          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3890.839382460701!2d78.1616178750515!3d14.1092228876124!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bb136b9ff68b6df%3A0xa3a6d979f4c923e4!2sKadiri%2C%20Andhra%20Pradesh!5e0!3m2!1sen!2sin!4v1710447075801"
+          className="w-full h-full rounded-lg shadow-lg border border-[#FFD700] mb-4"
+          src="https://maps.google.com/maps?q=Mallanna%20Salon&t=&z=13&ie=UTF8&iwloc=&output=embed"
           loading="lazy"
         ></iframe>
       </div>
