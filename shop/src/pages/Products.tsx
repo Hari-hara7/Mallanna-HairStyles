@@ -60,10 +60,10 @@ const Products = () => {
   Exclusive Collection
 </h1>
 
+<p className="text-xl sm:text-2xl md:text-3xl text-gray-300 max-w-4xl mx-auto mt-6 sm:mt-8 font-[Poppins] leading-relaxed text-center">
+  Experience unmatched luxury with our handpicked premium grooming products.
+</p>
 
-        <p className="text-lg text-gray-400 max-w-3xl mx-auto mt-4 font-[Poppins]">
-          Experience unmatched luxury with our handpicked premium grooming products.
-        </p>
       </motion.div>
 
       {/* Product Cards */}
