@@ -5,6 +5,8 @@ import { FaBoxOpen } from "react-icons/fa";
 import { MdOutlineEmail } from "react-icons/md";
 import { FiHash, FiHome } from "react-icons/fi";
 
+import logo from "../assets/logo.png"; // Replace with the actual path to your logo
+
 const ProductModal = ({ product, onClose }) => {
   const [formData, setFormData] = useState({
     name: "",
@@ -19,7 +21,7 @@ const ProductModal = ({ product, onClose }) => {
 
   return (
     <motion.div
-      className="fixed inset-0 bg-black/70 flex justify-center items-center p-6"
+      className="fixed inset-0 bg-black/80 flex justify-center items-center p-6"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
     >
@@ -28,16 +30,25 @@ const ProductModal = ({ product, onClose }) => {
         initial={{ scale: 0.8 }}
         animate={{ scale: 1 }}
       >
+        {/* Close Button */}
         <button
           className="absolute top-4 right-4 text-2xl text-[#FFD700] hover:text-red-500 transition-transform duration-200 hover:rotate-90"
           onClick={onClose}
         >
           <IoClose />
         </button>
-        <h2 className="text-3xl font-bold text-[#FFD700] mb-6 flex items-center gap-2">
-          <FaBoxOpen className="text-4xl" /> Order {product.name}
-        </h2>
+
+        {/* Brand Logo */}
+        <div className="flex justify-center mb-4">
+          <img src={logo} alt="Brand Logo" className="w-20 h-20 rounded-full shadow-lg" />
+        </div>
+
+        {/* Product Title with Logo */}
+    
+
+        {/* Order Form */}
         <form action="https://formspree.io/f/{your_formspree_id}" method="POST">
+          {/* Name Field */}
           <div className="relative mb-4">
             <MdOutlineEmail className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 text-lg" />
             <input
@@ -49,7 +60,8 @@ const ProductModal = ({ product, onClose }) => {
               required
             />
           </div>
-          
+
+          {/* Email Field */}
           <div className="relative mb-4">
             <MdOutlineEmail className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 text-lg" />
             <input
@@ -61,7 +73,8 @@ const ProductModal = ({ product, onClose }) => {
               required
             />
           </div>
-          
+
+          {/* Quantity Field */}
           <div className="relative mb-4">
             <FiHash className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 text-lg" />
             <input
@@ -74,7 +87,8 @@ const ProductModal = ({ product, onClose }) => {
               required
             />
           </div>
-          
+
+          {/* Address Field */}
           <div className="relative mb-6">
             <FiHome className="absolute left-3 top-3 text-gray-400 text-lg" />
             <textarea
@@ -85,7 +99,8 @@ const ProductModal = ({ product, onClose }) => {
               required
             ></textarea>
           </div>
-          
+
+          {/* Submit Button */}
           <button
             type="submit"
             className="w-full py-3 bg-gradient-to-r from-[#FFD700] to-[#ff8c00] text-black font-semibold rounded-lg shadow-lg hover:scale-105 transition-transform duration-300"
