@@ -1,7 +1,16 @@
 import { FaFacebook, FaInstagram, FaTwitter, FaLinkedin, FaYoutube, FaMapMarkerAlt } from "react-icons/fa";
 import logo from "../assets/logo.png"; // Ensure correct path
+import { Link } from "react-router-dom";
 
 const Footer = () => {
+  const links = [
+    { name: "Home", path: "/" },
+    { name: "About", path: "/about" },
+    { name: "Services", path: "/services" },
+    { name: "Gallery", path: "/gallery" },
+    { name: "Products", path: "/products" },
+    { name: "Contact", path: "/contact" },
+  ];
   return (
     <footer className="relative bg-gradient-to-t from-black to-gray-900/80 text-white py-12 px-6 text-center backdrop-blur-lg border-t border-[#FFD700] shadow-2xl">
       {/* Main Container */}
@@ -34,23 +43,23 @@ const Footer = () => {
       </div>
 
       {/* Quick Links */}
-      <div className="flex flex-wrap justify-center mt-10 gap-6 text-gray-300 text-lg">
-        {["Home", "About", "Services", "Gallery", "Products", "Contact"].map((link, index) => (
-          <a
-            key={index}
-            href={`#${link.toLowerCase()}`}
-            className="relative group transition hover:text-[#FFD700] hover:scale-105"
-          >
-            {link}
-            <span className="block h-0.5 w-0 bg-[#FFD700] transition-all duration-300 group-hover:w-full"></span>
-          </a>
-        ))}
-      </div>
+      <div className="flex flex-wrap justify-center mt-10 gap-6 text-gray-300 text-lg sm:text-xl font-medium">
+      {links.map((link, index) => (
+        <Link
+          key={index}
+          to={link.path}
+          className="relative group transition hover:text-[#FFD700] hover:scale-105"
+        >
+          {link.name}
+          <span className="block h-0.5 w-0 bg-[#FFD700] transition-all duration-300 group-hover:w-full"></span>
+        </Link>
+      ))}
+    </div>
 
       {/* Social Media Icons */}
       <div className="flex justify-center mt-6 space-x-6">
         {[
-          { icon: <FaFacebook />, link: "#" },
+          { icon: <FaFacebook />, link: "/" },
           { icon: <FaInstagram />, link: "#" },
           { icon: <FaTwitter />, link: "#" },
           { icon: <FaLinkedin />, link: "#" },
