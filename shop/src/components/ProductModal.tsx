@@ -57,7 +57,7 @@ const ProductModal = ({ product, onClose }) => {
               type="text"
               name="name"
               placeholder="Your Name"
-              className="w-full p-2 sm:px-8 pl-20 bg-black border border-gray-600 rounded-lg text-white focus:ring-2 focus:ring-[#FFD700]"
+              className="w-full p-2 sm:px-8 pl-10 bg-black border border-gray-600 rounded-lg text-white focus:ring-2 focus:ring-[#FFD700]"
               onChange={handleChange}
               required
             />
