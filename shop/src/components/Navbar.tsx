@@ -93,7 +93,7 @@ const Navbar = () => {
 
           {/* Sign In Button */}
           <Link
-            to="/signin"
+            to="/login"
             className="mt-4 flex items-center gap-2 bg-[#FFD700] text-black px-6 py-3 rounded-lg shadow-md transition hover:bg-white hover:text-black hover:scale-105"
             onClick={() => setIsOpen(false)}
           >
