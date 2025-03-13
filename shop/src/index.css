@@ -23,4 +23,17 @@
   .animate-border-glow {
     animation: borderGlow 3s infinite;
   }
+  .input-field {
+    @apply w-full p-3 bg-black text-white border border-yellow-400 rounded-lg 
+           focus:outline-none focus:ring-2 focus:ring-yellow-500 transition-all;
+  }
+  
+  .btn-glow {
+    @apply w-full py-3 bg-yellow-500 text-black font-bold text-lg rounded-lg shadow-lg 
+           hover:bg-yellow-600 transition-all;
+  }
+  
+  .glassmorphism {
+    @apply bg-black/40 backdrop-blur-lg border border-yellow-500 p-5 rounded-xl;
+  }
   

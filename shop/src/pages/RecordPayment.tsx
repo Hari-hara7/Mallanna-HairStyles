@@ -2,6 +2,8 @@ import { useState, useEffect } from "react";
 import { addPayment, getPayments } from "../services/firestore";
 import { auth } from "../services/firebase";
 import { onAuthStateChanged } from "firebase/auth";
+import { FaRupeeSign, FaMoneyBillWave, FaUser, FaUserCircle } from "react-icons/fa";
+import Navbar from "../components/Navbar";
 
 const RecordPayment = () => {
   const [customerName, setCustomerName] = useState("");
@@ -67,91 +69,281 @@ const RecordPayment = () => {
   };
 
   if (!user) {
-    return <p className="text-center text-red-500">You must be signed in to access this page.</p>;
+    return <p className="text-center text-yellow-500">You must be signed in to access this page.</p>;
   }
 
   return (
-    <div className="p-4 max-w-md mx-auto">
-      <h2 className="text-2xl mb-4">Record Payment</h2>
-      <div className="flex items-center gap-3 mb-4">
-        {user.photoURL ? (
-          <img src={user.photoURL} alt="Profile" className="w-12 h-12 rounded-full border" />
-        ) : (
-          <div className="w-12 h-12 rounded-full bg-gray-300 flex items-center justify-center text-gray-600">
-            ?
+    <div className="min-h-screen flex flex-col items-center py-10 px-4" style={styles.container}>
+        <Navbar />
+      <div style={styles.card}>
+        <h2 style={styles.title}>💰 Record Payment</h2>
+
+        <div style={styles.profile}>
+          {user.photoURL ? (
+            <img src={user.photoURL} alt="Profile" style={styles.avatar} />
+          ) : (
+            <FaUserCircle style={styles.iconLarge} />
+          )}
+          <div>
+            <p style={styles.username}>{user.displayName}</p>
+            <p style={styles.userEmail}>{user.email}</p>
           </div>
-        )}
-        <div>
-          <p className="font-semibold">{user.displayName}</p>
-          <p className="text-sm text-gray-500">{user.email}</p>
         </div>
+
+        <form onSubmit={handleSubmit} style={styles.form}>
+          <div style={styles.inputGroup}>
+            <FaUser style={styles.inputIcon} />
+            <input
+              type="text"
+              placeholder="Customer Name"
+              value={customerName}
+              onChange={(e) => setCustomerName(e.target.value)}
+              style={styles.input}
+            />
+          </div>
+
+          <div style={styles.inputGroup}>
+            <FaMoneyBillWave style={styles.inputIcon} />
+            <input
+              type="text"
+              placeholder="Service"
+              value={service}
+              onChange={(e) => setService(e.target.value)}
+              style={styles.input}
+            />
+          </div>
+
+          <div style={styles.inputGroup}>
+            <FaRupeeSign style={styles.inputIcon} />
+            <input
+              type="number"
+              placeholder="Amount"
+              value={amount}
+              onChange={(e) => setAmount(e.target.value)}
+              style={styles.input}
+            />
+          </div>
+
+          <select
+            value={paymentMethod}
+            onChange={(e) => setPaymentMethod(e.target.value)}
+            style={styles.select}
+          >
+            <option value="Cash">Cash</option>
+            <option value="Card">Card</option>
+            <option value="UPI">UPI</option>
+          </select>
+
+          <button type="submit" style={styles.button}>
+            Save Payment
+          </button>
+        </form>
       </div>
 
-      <form onSubmit={handleSubmit} className="flex flex-col space-y-3">
-        <input
-          type="text"
-          placeholder="Customer Name"
-          value={customerName}
-          onChange={(e) => setCustomerName(e.target.value)}
-          className="border p-2 rounded"
-        />
-        <input
-          type="text"
-          placeholder="Service"
-          value={service}
-          onChange={(e) => setService(e.target.value)}
-          className="border p-2 rounded"
-        />
-        <input
-          type="number"
-          placeholder="Amount"
-          value={amount}
-          onChange={(e) => setAmount(e.target.value)}
-          className="border p-2 rounded"
-        />
-        <select
-          value={paymentMethod}
-          onChange={(e) => setPaymentMethod(e.target.value)}
-          className="border p-2 rounded"
-        >
-          <option value="Cash">Cash</option>
-          <option value="Card">Card</option>
-          <option value="UPI">UPI</option>
-        </select>
-        <button type="submit" className="bg-blue-500 text-white px-4 py-2 rounded">
-          Save Payment
-        </button>
-      </form>
-
-      <h3 className="text-xl mt-6">Recorded Payments</h3>
-      <ul className="mt-2">
-        {payments.map((payment) => (
-          <li key={payment.id} className="border-b p-2 flex items-center gap-3">
-            <div className="flex items-center gap-2">
-              {payment.workerPhotoURL ? (
-                <img
-                  src={payment.workerPhotoURL}
-                  alt="Worker Profile"
-                  className="w-10 h-10 rounded-full border"
-                />
-              ) : (
-                <div className="w-10 h-10 rounded-full bg-gray-300 flex items-center justify-center text-gray-600">
-                  ?
-                </div>
-              )}
-              <div>
-                <p className="font-semibold">{payment.workerName}</p>
-                <p className="text-xs text-gray-500">{payment.workerEmail}</p>
-              </div>
-            </div>
-            <div>
-              <strong>{payment.customerName}</strong> - {payment.service} - ₹{payment.amount} ({payment.paymentMethod})
-            </div>
-          </li>
-        ))}
-      </ul>
+     {/* Recorded Payments */}
+<div style={styles.recordList}>
+  <h3 style={styles.recordTitle}>📜 Recorded Payments</h3>
+  <ul style={styles.recordGrid}>
+    {payments.map((payment, index) => (
+      <li key={payment.id} style={{ ...styles.recordItem, animationDelay: `${index * 0.1}s` }}>
+        <div style={styles.workerAvatarContainer}>
+          {payment.workerPhotoURL ? (
+            <img src={payment.workerPhotoURL} alt="Worker" style={styles.smallAvatar} />
+          ) : (
+            <FaUserCircle style={styles.iconMedium} />
+          )}
+        </div>
+        <div style={styles.recordContent}>
+          <p style={styles.recordName}>{payment.customerName}</p>
+          <p style={styles.recordDetails}>
+            {payment.service} - <span style={styles.goldText}>₹{payment.amount}</span> ({payment.paymentMethod})
+          </p>
+        </div>
+      </li>
+    ))}
+  </ul>
+</div>
     </div>
   );
+};
+
+// Custom Inline Styles (Better than CSS File)
+const styles = {
+  container: {
+    background: "linear-gradient(135deg, #000000, #222222)",
+    color: "#FFD700",
+  },
+  card: {
+    background: "rgba(0, 0, 0, 0.7)",
+    backdropFilter: "blur(10px)",
+    padding: "24px",
+    borderRadius: "12px",
+    boxShadow: "0px 0px 20px rgba(255, 215, 0, 0.5)",
+    border: "1px solid #FFD700",
+    maxWidth: "450px",
+    width: "100%",
+    textAlign: "center",
+    marginTop: "80px", // ✅ Added margin top
+  },
+  title: {
+    fontSize: "24px",
+    fontWeight: "bold",
+    color: "#FFD700",
+  },
+  profile: {
+    display: "flex",
+    alignItems: "center",
+    gap: "16px",
+    marginBottom: "20px",
+  },
+  avatar: {
+    width: "60px",
+    height: "60px",
+    borderRadius: "50%",
+    border: "2px solid #FFD700",
+  },
+  iconLarge: {
+    fontSize: "50px",
+    color: "#FFD700",
+  },
+  username: {
+    fontSize: "18px",
+    fontWeight: "bold",
+  },
+  userEmail: {
+    fontSize: "14px",
+    color: "#aaaaaa",
+  },
+  form: {
+    display: "flex",
+    flexDirection: "column",
+    gap: "12px",
+  },
+  inputGroup: {
+    position: "relative",
+  },
+  inputIcon: {
+    position: "absolute",
+    left: "10px",
+    top: "50%",
+    transform: "translateY(-50%)",
+    color: "#FFD700",
+  },
+  input: {
+    width: "100%",
+    padding: "12px 40px",
+    background: "rgba(0, 0, 0, 0.5)",
+    border: "1px solid #FFD700",
+    borderRadius: "8px",
+    color: "white",
+    outline: "none",
+  },
+  select: {
+    padding: "12px",
+    borderRadius: "8px",
+    border: "1px solid #FFD700",
+    background: "black",
+    color: "#FFD700",
+  },
+  button: {
+    padding: "12px",
+    borderRadius: "8px",
+    background: "#FFD700",
+    color: "black",
+    fontWeight: "bold",
+    cursor: "pointer",
+    boxShadow: "0px 0px 10px #FFD700",
+    transition: "all 0.3s ease",
+  },
+  buttonHover: {
+    background: "#FFEA00",
+  },
+  recordList: {
+    maxWidth: "450px",
+    marginTop: "20px",
+  },
+  recordTitle: {
+    fontSize: "20px",
+    fontWeight: "bold",
+  },
+  recordItem: {
+    background: "rgba(0, 0, 0, 0.7)",
+    padding: "10px",
+    borderRadius: "8px",
+    marginBottom: "10px",
+    display: "flex",
+    alignItems: "center",
+    gap: "12px",
+  },
+  recordList: {
+    maxWidth: "600px",
+    marginTop: "30px",
+    padding: "20px",
+    borderRadius: "12px",
+    background: "rgba(0, 0, 0, 0.6)",
+    border: "1px solid rgba(255, 215, 0, 0.5)",
+    backdropFilter: "blur(15px)",
+    boxShadow: "0 0 15px rgba(255, 215, 0, 0.3)",
+  },
+  recordTitle: {
+    fontSize: "22px",
+    fontWeight: "bold",
+    color: "#FFD700",
+    textAlign: "center",
+    marginBottom: "15px",
+  },
+  recordGrid: {
+    display: "grid",
+    gridTemplateColumns: "1fr",
+    gap: "12px",
+  },
+  recordItem: {
+    display: "flex",
+    alignItems: "center",
+    gap: "14px",
+    padding: "14px",
+    borderRadius: "12px",
+    background: "rgba(0, 0, 0, 0.7)",
+    boxShadow: "0px 0px 10px rgba(255, 215, 0, 0.3)",
+    transition: "transform 0.3s ease, box-shadow 0.3s ease",
+    animation: "fadeInUp 0.5s ease forwards",
+  },
+  recordItemHover: {
+    transform: "scale(1.05)",
+    boxShadow: "0px 0px 20px rgba(255, 215, 0, 0.5)",
+  },
+  workerAvatarContainer: {
+    width: "50px",
+    height: "50px",
+    borderRadius: "50%",
+    overflow: "hidden",
+    border: "2px solid #FFD700",
+  },
+  smallAvatar: {
+    width: "100%",
+    height: "100%",
+    objectFit: "cover",
+  },
+  iconMedium: {
+    fontSize: "50px",
+    color: "#FFD700",
+  },
+  recordContent: {
+    flex: 1,
+  },
+  recordName: {
+    fontSize: "18px",
+    fontWeight: "bold",
+    color: "#FFD700",
+  },
+  recordDetails: {
+    fontSize: "14px",
+    color: "#aaa",
+  },
+  goldText: {
+    color: "#FFD700",
+    fontWeight: "bold",
+  },
 };
 
 export default RecordPayment;
