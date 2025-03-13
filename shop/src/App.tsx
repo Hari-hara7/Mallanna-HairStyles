@@ -13,6 +13,9 @@ import Dashboard from "./pages/Dashboard";
 import Appointments from "./pages/Appointments";
 import Feedback from "./pages/Feedback";
 import FeedbackList from "./pages/FeedbackList";
+import RecordPayment from "./pages/RecordPayment";
+import ViewPayments from "./pages/ViewPayments";
+
 const App = () => {
   return (
     <AuthProvider>
@@ -34,6 +37,8 @@ const App = () => {
           <Route path="/appointments" element={<Appointments />} />
           <Route path="/feedback" element={<Feedback />} />
           <Route path="/feedback-list" element={<FeedbackList />} />
+          <Route path="/record-payment" element={<RecordPayment />} />
+          <Route path="/view-payments" element={<ViewPayments />} />
 
         </Routes>
       </Router>

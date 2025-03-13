@@ -25,14 +25,20 @@ const Dashboard = () => {
       <p className="mt-2">Email: {user.email}</p>
 
       <div className="mt-6 space-y-3 flex flex-col items-center">
-        <Link to="/book-appointment" className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">
+        <Link to="/appointments" className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">
           Book Appointment
         </Link>
         <Link to="/feedback" className="bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600">
           Give Feedback
         </Link>
-        <Link to="/view-feedback" className="bg-purple-500 text-white px-4 py-2 rounded hover:bg-purple-600">
+        <Link to="/feedback-list" className="bg-purple-500 text-white px-4 py-2 rounded hover:bg-purple-600">
           View Feedback
+        </Link>
+        <Link to="/view-payments" className="bg-purple-500 text-white px-4 py-2 rounded hover:bg-purple-600">
+          Payment
+        </Link>
+        <Link to="/record-payment" className="bg-purple-500 text-white px-4 py-2 rounded hover:bg-purple-600">
+          record Payment
         </Link>
       </div>
 
