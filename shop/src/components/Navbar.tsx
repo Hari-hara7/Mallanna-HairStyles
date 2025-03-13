@@ -46,7 +46,7 @@ const Navbar = () => {
 
         {/* Sign In Button */}
         <Link
-          to="/signin"
+          to="/login"
           className="hidden md:flex items-center gap-2 bg-[#FFD700] text-black px-5 py-2 rounded-lg shadow-md transition hover:bg-white hover:text-black hover:scale-105"
         >
           <FaSignInAlt />
