@@ -1,19 +1,20 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import { FaBars, FaTimes, FaHome, FaInfoCircle, FaServicestack, FaImages, FaBoxOpen, FaEnvelope, FaSignInAlt } from "react-icons/fa";
+import { FaBars, FaTimes, FaHome, FaInfoCircle, FaServicestack, FaImages, FaBoxOpen, FaEnvelope, FaSignInAlt,FaTachometerAlt } from "react-icons/fa";
 import logo from "../assets/logo.png"; // Ensure the path is correct
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
 
-  // Navigation Links with Icons
   const navLinks = [
+   
     { name: "Home", path: "/", icon: <FaHome /> },
     { name: "About", path: "/about", icon: <FaInfoCircle /> },
     { name: "Services", path: "/services", icon: <FaServicestack /> },
     { name: "Gallery", path: "/gallery", icon: <FaImages /> },
     { name: "Products", path: "/products", icon: <FaBoxOpen /> },
     { name: "Contact", path: "/contact", icon: <FaEnvelope /> },
+    { name: "Dashboard", path: "/dashboard", icon: <FaTachometerAlt /> }, 
   ];
 
   return (
