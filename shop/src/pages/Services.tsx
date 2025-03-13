@@ -2,6 +2,7 @@ import { FaCut, FaSpa, FaHandSparkles, FaAirFreshener, FaUserTie } from "react-i
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import { motion } from "framer-motion";
+import { useNavigate } from 'react-router-dom';
 
 const services = [
   { title: "Luxury Haircut", description: "Precision styling with premium products.", icon: <FaCut className="text-6xl text-gold" /> },
@@ -12,6 +13,7 @@ const services = [
 ];
 
 const Services = () => {
+  const navigate = useNavigate();
   return (
     <div className="bg-black text-white font-['Poppins'] overflow-hidden">
       {/* Navbar */}
@@ -116,6 +118,7 @@ const Services = () => {
     <motion.button
       className="mt-6 sm:mt-8 px-6 sm:px-10 py-3 sm:py-4 text-lg sm:text-xl font-semibold bg-gradient-to-r from-[#FFD700] to-[#ff8c00] text-black rounded-md shadow-lg hover:scale-105 transition duration-300"
       whileHover={{ scale: 1.1 }}
+      onClick={() => navigate('/appointments')}
     >
       Schedule a Visit
     </motion.button>

@@ -84,7 +84,7 @@ const Appointments = () => {
 
   if (!user) {
     return (
-      <div className="flex flex-col justify-center items-center h-screen text-white">
+      <div className="flex flex-col justify-center items-center h-screen text-black">
         <p className="text-2xl font-semibold">Please sign in to continue.</p>
       </div>
     );
