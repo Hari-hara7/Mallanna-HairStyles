@@ -6,6 +6,7 @@ import { collection, addDoc, serverTimestamp } from "firebase/firestore";
 import { onAuthStateChanged, signOut } from "firebase/auth";
 import { FaUserCircle, FaPhoneAlt, FaSignOutAlt, FaCalendarAlt, FaCheckCircle } from "react-icons/fa";
 import { IoMdMail } from "react-icons/io";
+import Navbar from "../components/Navbar";
 
 const Appointments = () => {
   const [user, setUser] = useState(null);
@@ -91,6 +92,7 @@ const Appointments = () => {
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-black px-6">
+        <Navbar />
       <div className="w-full max-w-lg bg-black/40 backdrop-blur-md border border-yellow-500 shadow-2xl rounded-xl p-6 text-white relative overflow-hidden">
 
         {/* Success message */}

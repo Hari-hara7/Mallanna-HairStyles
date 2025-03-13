@@ -3,7 +3,7 @@ import { useNavigate, Link } from "react-router-dom";
 import { useEffect } from "react";
 import { motion } from "framer-motion";
 import Navbar from "../components/Navbar";
-import Footer from "../components/Footer";
+
 import { FaUserCircle, FaCalendarCheck, FaCommentAlt, FaMoneyCheckAlt, FaSignOutAlt } from "react-icons/fa";
 
 const Dashboard = () => {
