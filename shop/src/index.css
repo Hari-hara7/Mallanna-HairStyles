@@ -1,1 +1,26 @@
 @import "tailwindcss";
+@keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  .animate-fade-in {
+    animation: fadeIn 0.5s ease-in-out forwards;
+  }
+  
+  @keyframes borderGlow {
+    0% { border-color: transparent; }
+    50% { border-color: rgba(255, 215, 0, 0.7); }
+    100% { border-color: transparent; }
+  }
+  
+  .animate-border-glow {
+    animation: borderGlow 3s infinite;
+  }
+  
