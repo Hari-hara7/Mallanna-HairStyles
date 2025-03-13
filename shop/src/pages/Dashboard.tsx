@@ -1,10 +1,15 @@
 import { useAuth } from "../contexts/AuthContext";
-import { useNavigate, Link } from "react-router-dom";
-import { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
+import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import Navbar from "../components/Navbar";
-
-import { FaUserCircle, FaCalendarCheck, FaCommentAlt, FaMoneyCheckAlt, FaSignOutAlt } from "react-icons/fa";
+import {
+  FaUserCircle,
+  FaCalendarCheck,
+  FaCommentAlt,
+  FaMoneyCheckAlt,
+  FaSignOutAlt
+} from "react-icons/fa";
 
 const Dashboard = () => {
   const { user, logout } = useAuth();
@@ -46,7 +51,11 @@ const Dashboard = () => {
           transition={{ delay: 0.3, duration: 0.5 }}
         >
           {user.photoURL ? (
-            <img src={user.photoURL} alt="User" className="w-20 h-20 sm:w-24 sm:h-24 rounded-full border-4 border-[#FFD700]/80 shadow-lg" />
+            <img
+              src={user.photoURL}
+              alt="User"
+              className="w-20 h-20 sm:w-24 sm:h-24 rounded-full border-4 border-[#FFD700]/80 shadow-lg"
+            />
           ) : (
             <FaUserCircle className="text-6xl sm:text-7xl text-[#FFD700]" />
           )}
@@ -61,8 +70,8 @@ const Dashboard = () => {
           <ActionButton to="/appointments" icon={<FaCalendarCheck />} text="Book Appointment" />
           <ActionButton to="/feedback" icon={<FaCommentAlt />} text="Give Feedback" />
           <ActionButton to="/feedback-list" icon={<FaCommentAlt />} text="View Feedback" />
-          <ActionButton to="/view-payments" icon={<FaMoneyCheckAlt />} text="View Payments" />
-          <ActionButton to="/record-payment" icon={<FaMoneyCheckAlt />} text="Record Payment" />
+          <SecureActionButton to="/view-payments" icon={<FaMoneyCheckAlt />} text="View Payments" />
+          <SecureActionButton to="/record-payment" icon={<FaMoneyCheckAlt />} text="Record Payment" />
         </div>
 
         {/* Logout Button */}
@@ -90,24 +99,62 @@ const Dashboard = () => {
         animate={{ opacity: 1, scale: 1.2 }}
         transition={{ duration: 2, repeat: Infinity, repeatType: "reverse" }}
       />
-
-
     </div>
   );
 };
 
-// Reusable Action Button Component
-const ActionButton = ({ to, icon, text }) => (
-  <motion.div 
-    className="relative"
-    whileHover={{ scale: 1.05 }}
-    whileTap={{ scale: 0.95 }}
-  >
-    <Link to={to} className="w-full flex items-center justify-center gap-3 bg-[#111] text-[#FFD700] font-semibold py-4 rounded-lg shadow-md border border-[#FFD700]/80 hover:border-[#ff8c00] hover:bg-[#222] transition-all duration-300">
-      {icon}
-      {text}
-    </Link>
-  </motion.div>
-);
+// Reusable Standard Action Button
+const ActionButton = ({ to, icon, text }) => {
+  const navigate = useNavigate();
+
+  return (
+    <motion.div 
+      className="relative"
+      whileHover={{ scale: 1.05 }}
+      whileTap={{ scale: 0.95 }}
+    >
+      <button 
+        onClick={() => navigate(to)} 
+        className="w-full flex items-center justify-center gap-3 bg-[#111] text-[#FFD700] font-semibold py-4 rounded-lg shadow-md border border-[#FFD700]/80 hover:border-[#ff8c00] hover:bg-[#222] transition-all duration-300"
+      >
+        {icon}
+        {text}
+      </button>
+    </motion.div>
+  );
+};
+
+// Secure Action Button (Requires Secret Key)
+const SecureActionButton = ({ to, icon, text }) => {
+  const navigate = useNavigate();
+  const [error, setError] = useState("");
+
+  const handleConfirm = () => {
+    const secretKey = prompt("🔐 Enter Secret Key to Access:");
+    if (secretKey === "2277") {
+      navigate(to);
+    } else {
+      setError("❌ Invalid Secret Key! Access Denied.");
+      setTimeout(() => setError(""), 3000);
+    }
+  };
+
+  return (
+    <motion.div 
+      className="relative"
+      whileHover={{ scale: 1.05 }}
+      whileTap={{ scale: 0.95 }}
+    >
+      <button 
+        onClick={handleConfirm} 
+        className="w-full flex items-center justify-center gap-3 bg-[#111] text-[#FFD700] font-semibold py-4 rounded-lg shadow-md border border-[#FFD700]/80 hover:border-[#ff8c00] hover:bg-[#222] transition-all duration-300"
+      >
+        {icon}
+        {text}
+      </button>
+      {error && <p className="mt-2 text-red-500 text-sm">{error}</p>}
+    </motion.div>
+  );
+};
 
 export default Dashboard;
