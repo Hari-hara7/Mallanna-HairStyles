@@ -91,121 +91,81 @@ const Appointments = () => {
   }
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-black px-6">
-        <Navbar />
-      <div className="w-full max-w-lg bg-black/40 backdrop-blur-md border border-yellow-500 shadow-2xl rounded-xl p-6 text-white relative overflow-hidden">
+    <div className="min-h-screen flex items-center justify-center bg-black px-4 sm:px-6">
+    <Navbar />
+    <div className="w-full max-w-lg bg-black/40 backdrop-blur-md border border-yellow-500 shadow-2xl rounded-xl p-4 sm:p-6 text-white relative overflow-hidden mt-20 sm:mt-20">
 
-        {/* Success message */}
-        {success && (
-          <div className="absolute top-2 left-1/2 transform -translate-x-1/2 bg-green-600 text-white px-4 py-2 rounded-md flex items-center gap-2 shadow-lg">
-            <FaCheckCircle /> Appointment Booked Successfully!
-          </div>
-        )}
-
-        {/* User profile */}
-        <div className="flex items-center justify-between p-4 bg-black/50 rounded-lg border border-yellow-400 mb-4 shadow-md">
-          <div className="flex items-center">
-            {user.photoURL ? (
-              <img src={user.photoURL} alt="User Avatar" className="w-12 h-12 rounded-full border-2 border-yellow-400" />
-            ) : (
-              <FaUserCircle className="text-4xl text-yellow-400" />
-            )}
-            <div className="ml-3">
-              <p className="text-lg font-semibold text-yellow-300">{user.displayName}</p>
-              <p className="text-sm text-gray-400">{user.email}</p>
-            </div>
-          </div>
-          <button onClick={handleSignOut} className="text-red-500 hover:text-red-400 flex items-center gap-1">
-            <FaSignOutAlt /> Sign Out
-          </button>
+      {success && (
+        <div className="absolute top-2 left-1/2 transform -translate-x-1/2 bg-green-600 text-white px-3 py-2 rounded-md flex items-center gap-2 text-sm sm:text-base shadow-lg">
+          <FaCheckCircle /> Appointment Booked Successfully!
         </div>
+      )}
 
-        {/* Booking form */}
-        <h2 className="text-2xl font-bold text-yellow-400 text-center mb-4">Book an Appointment</h2>
-
-        <div className="space-y-3">
-          <div className="flex items-center bg-black/50 p-3 rounded-lg border border-gray-600">
-            <FaUserCircle className="text-yellow-400 text-xl mr-3" />
-            <input
-              type="text"
-              name="name"
-              placeholder="Your Name"
-              value={formData.name}
-              onChange={handleChange}
-              className="bg-transparent w-full outline-none text-white placeholder-gray-400"
-            />
-          </div>
-
-          <div className="flex items-center bg-black/50 p-3 rounded-lg border border-gray-600">
-            <IoMdMail className="text-yellow-400 text-xl mr-3" />
-            <input
-              type="email"
-              name="email"
-              placeholder="Your Email"
-              value={formData.email}
-              className="bg-transparent w-full outline-none text-gray-400"
-              disabled
-            />
-          </div>
-
-          <div className="flex items-center bg-black/50 p-3 rounded-lg border border-gray-600">
-            <FaPhoneAlt className="text-yellow-400 text-xl mr-3" />
-            <input
-              type="tel"
-              name="phone"
-              placeholder="Your Phone Number"
-              value={formData.phone}
-              onChange={handleChange}
-              className="bg-transparent w-full outline-none text-white placeholder-gray-400"
-            />
-          </div>
-          <div className="flex items-center bg-black/50 p-3 rounded-lg border border-gray-600">
-  <FaCalendarAlt className="text-yellow-400 text-xl mr-3" />
-  <select
-    name="serviceType"
-    value={formData.serviceType}
-    onChange={handleChange}
-    className="bg-black text-white w-full outline-none border-none appearance-none"
-  >
-    <option value="" className="bg-black text-white">
-      Select Service
-    </option>
-    <option value="Haircut" className="bg-black text-white">
-      Haircut
-    </option>
-    <option value="Shaving" className="bg-black text-white">
-      Shaving
-    </option>
-    <option value="Hair Color" className="bg-black text-white">
-      Hair Color
-    </option>
-    <option value="Facial" className="bg-black text-white">
-      Facial
-    </option>
-  </select>
-</div>
-
-
-          <div className="flex items-center bg-black/50 p-3 rounded-lg border border-gray-600">
-            <FaCalendarAlt className="text-yellow-400 text-xl mr-3" />
-            <input
-              type="datetime-local"
-              name="date"
-              value={formData.date}
-              onChange={handleChange}
-              className="bg-transparent w-full outline-none text-white placeholder-gray-400"
-            />
+      <div className="flex flex-col sm:flex-row items-center justify-between p-4 bg-black/50 rounded-lg border border-yellow-400 mb-4 shadow-md">
+        <div className="flex items-center mb-3 sm:mb-0">
+          {user.photoURL ? (
+            <img src={user.photoURL} alt="User Avatar" className="w-10 h-10 sm:w-12 sm:h-12 rounded-full border-2 border-yellow-400" />
+          ) : (
+            <FaUserCircle className="text-3xl sm:text-4xl text-yellow-400" />
+          )}
+          <div className="ml-3">
+            <p className="text-base sm:text-lg font-semibold text-yellow-300">{user.displayName}</p>
+            <p className="text-sm text-gray-400">{user.email}</p>
           </div>
         </div>
-
-        <button
-          className="mt-6 w-full bg-yellow-500 text-black font-bold py-3 rounded-lg hover:bg-yellow-400"
-          onClick={handleBookAppointment}
-        >
-          Book Now
+        <button onClick={handleSignOut} className="text-red-500 hover:text-red-400 flex items-center gap-1 text-sm sm:text-base">
+          <FaSignOutAlt /> Sign Out
         </button>
       </div>
+
+      <h2 className="text-xl sm:text-2xl font-bold text-yellow-400 text-center mb-4">Book an Appointment</h2>
+
+      <div className="space-y-3">
+        {["name", "email", "phone", "serviceType", "date"].map((field, idx) => (
+          <div key={idx} className="flex items-center bg-black/50 p-3 rounded-lg border border-gray-600">
+            {field === "name" && <FaUserCircle className="text-yellow-400 text-xl mr-3" />}
+            {field === "email" && <IoMdMail className="text-yellow-400 text-xl mr-3" />}
+            {field === "phone" && <FaPhoneAlt className="text-yellow-400 text-xl mr-3" />}
+            {field === "serviceType" && <FaCalendarAlt className="text-yellow-400 text-xl mr-3" />}
+            {field === "date" && <FaCalendarAlt className="text-yellow-400 text-xl mr-3" />}
+            
+            {field === "serviceType" ? (
+              <select
+                name="serviceType"
+                value={formData.serviceType}
+                onChange={handleChange}
+                className="bg-black text-white w-full outline-none border-none appearance-none text-sm sm:text-base"
+              >
+                <option value="" className="bg-black text-white">Select Service</option>
+                <option value="Haircut" className="bg-black text-white">Haircut</option>
+                <option value="Shaving" className="bg-black text-white">Shaving</option>
+                <option value="Hair Color" className="bg-black text-white">Hair Color</option>
+                <option value="Facial" className="bg-black text-white">Facial</option>
+              </select>
+            ) : (
+              <input
+                type={field === "date" ? "datetime-local" : field === "email" ? "email" : "text"}
+                name={field}
+                placeholder={`Your ${field.charAt(0).toUpperCase() + field.slice(1)}`}
+                value={formData[field]}
+                onChange={handleChange}
+                disabled={field === "email"}
+                className="bg-transparent w-full outline-none text-white placeholder-gray-400 text-sm sm:text-base"
+              />
+            )}
+          </div>
+        ))}
+      </div>
+
+      <button
+        className="mt-6 w-full bg-yellow-500 text-black font-bold py-3 rounded-lg hover:bg-yellow-400 text-sm sm:text-base"
+        onClick={handleBookAppointment}
+      >
+        Book Now
+      </button>
     </div>
+  </div>
+
   );
 };
 
