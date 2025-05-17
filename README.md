@@ -10,7 +10,7 @@ A modern and fully responsive web application to manage saloon bookings, worker 
 
 ---
 
-## 🚀 Features
+## 🚀 Featuress
 
 ### 👤 User Management
 - 🔐 **Google Authentication** (Login/Signup)
