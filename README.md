@@ -46,9 +46,6 @@ A modern and fully responsive web application to manage saloon bookings, worker 
 
 ---
 
-## 📸 Screenshots
-
-> Add relevant screenshots here (Login Page, Booking UI, Feedback Form, Admin Panel, etc.)
 
 ---
 
