@@ -11,7 +11,7 @@ const Navbar = () => {
     { name: "Home", path: "/", icon: <FaHome /> },
     { name: "About", path: "/about", icon: <FaInfoCircle /> },
     { name: "Services", path: "/services", icon: <FaServicestack /> },
-    { name: "Gallery", path: "/gallery", icon: <FaImages /> },
+   
     { name: "Products", path: "/products", icon: <FaBoxOpen /> },
     { name: "Contact", path: "/contact", icon: <FaEnvelope /> },
     { name: "Dashboard", path: "/dashboard", icon: <FaTachometerAlt /> }, 
