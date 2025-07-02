@@ -1,4 +1,4 @@
-# 💇‍♂️ Mallanna Saloon Management System
+# 💇‍♂️ Salonsync Management System
 
 ![License](https://img.shields.io/badge/license-MIT-blue.svg)
 ![Built With](https://img.shields.io/badge/Built%20with-React%20%2B%20Vite%20%2B%20TypeScript-blue)
