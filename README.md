@@ -12,25 +12,25 @@ A modern and fully responsive web application to manage saloon bookings, worker 
 
 ## 🚀 Featuress
 
-### 👤 User Management
-- 🔐 **Google Authentication** (Login/Signup)
-- 👨‍💼 Role-based access (Admin, Worker, Customer)
+###  User Management
+-  **Google Authentication** (Login/Signup)
+-  Role-based access (Admin, Worker, Customer)
 
-### 📅 Booking System
-- ✂️ Customers can book appointments with preferred stylists.
-- 🕒 View upcoming and past bookings.
+###  Booking System
+-  Customers can book appointments with preferred stylists.
+-  View upcoming and past bookings.
 
-### 💬 Feedback System
-- 💭 Customers can provide feedback for services.
-- 📋 Admin can review and manage feedback.
+###  Feedback System
+-  Customers can provide feedback for services.
+-  Admin can review and manage feedback.
 
-### 💰 Worker Money Noting & Management
-- 💸 Track daily earnings of each worker.
-- 📊 Admin dashboard with analytics for salary and performance.
+###  Worker Money Noting & Management
+-  Track daily earnings of each worker.
+-  Admin dashboard with analytics for salary and performance.
 
-### 🛠 Admin Panel
-- 👥 Manage users, bookings, feedback, and finances.
-- 🔎 Real-time updates using **Firestore**.
+###  Admin Panel
+-  Manage users, bookings, feedback, and finances.
+-  Real-time updates using **Firestore**.
 
 ---
 
