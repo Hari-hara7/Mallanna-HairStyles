@@ -53,7 +53,7 @@ A modern and fully responsive web application to manage saloon bookings, worker 
 
 ```bash
 # Clone the repo
-git clone https://github.com/Hari-hara7/Mallanna-HairStyles.git
+git clone https://github.com/Hari-hara7/SalonSync.git
 cd shop
 
 # Install dependencies
